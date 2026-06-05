@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "scripts": {
+    "test": "node tests/check_frontend_module_syntax.mjs && node tests/check_frontend_view_models.mjs && node tests/check_frontend_checkout_ui.mjs && node tests/check_frontend_contracts.mjs"
+  }
+}

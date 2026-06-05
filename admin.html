@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Favourite Books</title>
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.44.0/dist/tabler-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <header class="toolbar">
+      <a class="toolbar-title" href="/" aria-label="Favourite Books home">Favourite Books</a>
+      <nav class="toolbar-actions" aria-label="Admin navigation">
+        <a class="toolbar-btn" href="index.html">
+          <i class="ti ti-books" aria-hidden="true"></i>
+          <span>Catalogue</span>
+        </a>
+      </nav>
+    </header>
+
+    <main class="page-shell" role="main">
+      <section class="page-heading" aria-labelledby="admin-title">
+        <div>
+          <p class="eyebrow">Employee tools</p>
+          <h1 id="admin-title">Catalogue Management</h1>
+        </div>
+        <p class="page-copy">SQLite-backed create, edit, and delete controls for Assignment 2 catalogue operations.</p>
+      </section>
+
+      <section class="admin-layout admin-layout-wide">
+        <form class="admin-panel" id="catalogue-form">
+          <div class="admin-panel-heading">
+            <h2 class="summary-title" id="form-title">Add Catalogue Item</h2>
+            <button class="secondary-action" id="reset-form" type="button">
+              <i class="ti ti-plus" aria-hidden="true"></i> New
+            </button>
+          </div>
+          <input name="editing_id" type="hidden" />
+          <div class="checkout-grid">
+            <label class="checkout-field">
+              <span>Employee ID</span>
+              <input name="employee_id" required value="emp-1" />
+            </label>
+            <label class="checkout-field">
+              <span>Access Code</span>
+              <input name="access_code" type="password" autocomplete="current-password" required placeholder="Demo: staff-code" />
+            </label>
+          </div>
+          <label class="checkout-field">
+            <span>Type</span>
+            <select name="item_type">
+              <option value="book">Book</option>
+              <option value="ebook">EBook</option>
+              <option value="merchandise">Merchandise</option>
+            </select>
+          </label>
+          <div class="checkout-grid">
+            <label class="checkout-field">
+              <span>ISBN / SKU</span>
+              <input name="identifier" type="number" required value="88" />
+            </label>
+            <label class="checkout-field">
+              <span>Price</span>
+              <input name="price" required value="18.50" />
+            </label>
+          </div>
+          <label class="checkout-field">
+            <span>Name</span>
+            <input name="name" required value="Design Patterns Pocket Guide" />
+          </label>
+          <label class="checkout-field">
+            <span>Author</span>
+            <input name="author" value="A. Designer" />
+          </label>
+          <div class="checkout-grid">
+            <label class="checkout-field">
+              <span>Genre / Category</span>
+              <input name="genre" required value="Technology" />
+            </label>
+            <label class="checkout-field">
+              <span>Edition</span>
+              <input name="edition" value="First" />
+            </label>
+          </div>
+          <div class="checkout-grid">
+            <label class="checkout-field">
+              <span>Pages</span>
+              <input name="pages" type="number" value="120" />
+            </label>
+            <label class="checkout-field">
+              <span>Stock</span>
+              <input name="stock" type="number" value="5" />
+            </label>
+          </div>
+          <button class="checkout-btn" id="save-item" type="submit">
+            <i class="ti ti-device-floppy" aria-hidden="true"></i> Save Item
+          </button>
+        </form>
+
+        <section class="admin-panel">
+          <h2 class="summary-title">SQLite Evidence</h2>
+          <div class="admin-evidence">
+            <div><span>Items</span><strong id="evidence-items">0</strong></div>
+            <div><span>Orders</span><strong id="evidence-orders">0</strong></div>
+            <div><span>Conversions</span><strong id="evidence-conversions">0</strong></div>
+          </div>
+          <div id="admin-insights" class="admin-insights" aria-live="polite"></div>
+          <div id="admin-output" class="admin-output" aria-live="polite">Ready</div>
+        </section>
+      </section>
+
+      <section class="admin-panel catalogue-panel" aria-labelledby="catalogue-table-title">
+        <h2 class="summary-title" id="catalogue-table-title">Persisted Catalogue</h2>
+        <div id="catalogue-table" class="catalogue-table" aria-live="polite">Loading catalogue...</div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="frontend/pages/adminPage.js"></script>
+</body>
+</html>

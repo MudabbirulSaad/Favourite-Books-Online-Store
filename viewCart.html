@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart | Favourite Books</title>
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.44.0/dist/tabler-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <header class="toolbar">
+      <a class="toolbar-title" href="/" aria-label="Favourite Books home">Favourite Books</a>
+      <nav class="toolbar-actions" aria-label="Cart navigation">
+        <a class="toolbar-btn" href="index.html">
+          <i class="ti ti-arrow-left" aria-hidden="true"></i>
+          <span>Back</span>
+        </a>
+        <button class="toolbar-btn toolbar-account guest" id="accountToggle" type="button">
+          <i class="ti ti-user-plus" aria-hidden="true"></i>
+          <span>Login / Register</span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="cartView" class="page-shell" role="main">
+      <section class="page-heading" aria-labelledby="cart-title">
+        <div>
+          <p class="eyebrow">Shopping cart</p>
+          <h1 id="cart-title">Review Your Cart</h1>
+        </div>
+        <p class="page-copy">Update your browser-session cart, then review the final checkout total before payment.</p>
+      </section>
+
+      <section id="cart-container" class="cart-container" aria-live="polite">
+        <div class="loading-state">
+          <i class="ti ti-loader-2" aria-hidden="true"></i>
+          Loading cart
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <section class="account-modal" id="accountPanel" aria-labelledby="accountModalTitle" aria-modal="true" role="dialog" hidden>
+    <div class="account-dialog">
+      <div class="account-dialog-header">
+        <div class="account-badge" aria-hidden="true">
+          <i class="ti ti-user-circle"></i>
+        </div>
+        <div>
+          <p class="eyebrow">Customer account</p>
+          <h2 id="accountModalTitle">Checkout Profile</h2>
+        </div>
+        <button class="icon-btn account-close" type="button" data-account-close aria-label="Close account">
+          <i class="ti ti-x" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="account-status" id="accountStatus"></div>
+
+      <div class="account-tabs" id="accountTabs" role="tablist" aria-label="Account action">
+        <button class="account-tab active" type="button" id="loginTab" data-account-tab="login" role="tab" aria-controls="loginForm" aria-selected="true">
+          <i class="ti ti-login" aria-hidden="true"></i> Login
+        </button>
+        <button class="account-tab" type="button" id="registerTab" data-account-tab="register" role="tab" aria-controls="registerForm" aria-selected="false">
+          <i class="ti ti-user-plus" aria-hidden="true"></i> Create
+        </button>
+      </div>
+
+      <div class="account-forms" id="accountForms">
+        <form class="account-form active" id="loginForm" aria-labelledby="loginTab">
+          <label class="checkout-field">
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+          </label>
+          <label class="checkout-field">
+            <span>Password</span>
+            <input name="password" type="password" autocomplete="current-password" placeholder="Your password" required />
+          </label>
+          <button class="checkout-btn" type="submit">
+            <i class="ti ti-login" aria-hidden="true"></i> Login
+          </button>
+        </form>
+
+        <form class="account-form" id="registerForm" aria-labelledby="registerTab" hidden>
+          <div class="account-grid">
+            <label class="checkout-field account-span">
+              <span>Name</span>
+              <input name="name" autocomplete="name" placeholder="Full name" required />
+            </label>
+            <label class="checkout-field">
+              <span>Email</span>
+              <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+            </label>
+            <label class="checkout-field">
+              <span>Password</span>
+              <input name="password" type="password" autocomplete="new-password" minlength="6" placeholder="At least 6 characters" required />
+            </label>
+            <label class="checkout-field account-span">
+              <span>Street</span>
+              <input name="street" autocomplete="street-address" placeholder="Street address" required />
+            </label>
+            <label class="checkout-field">
+              <span>City</span>
+              <input name="city" autocomplete="address-level2" placeholder="City" required />
+            </label>
+            <label class="checkout-field">
+              <span>State</span>
+              <input name="state" autocomplete="address-level1" placeholder="State" required />
+            </label>
+            <label class="checkout-field account-span">
+              <span>Postcode</span>
+              <input name="postcode" autocomplete="postal-code" placeholder="Postcode" required />
+            </label>
+          </div>
+          <button class="checkout-btn" type="submit">
+            <i class="ti ti-user-plus" aria-hidden="true"></i> Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="frontend/pages/cartPage.js"></script>
+</body>
+</html>

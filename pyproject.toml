@@ -1,0 +1,16 @@
+[project]
+name = "favourite-books"
+version = "0.1.0"
+description = "Favourite Books online bookstore prototype"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "flask>=3.1.3",
+    "flask-cors>=6.0.2",
+    "python-dotenv>=1.2.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]

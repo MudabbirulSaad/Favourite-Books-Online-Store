@@ -1,0 +1,1 @@
+"""Flask inbound adapter."""
