@@ -2,7 +2,7 @@
 
 A runnable Flask implementation of the Favourite Books online bookstore prototype for SWE30003 Assignment 3. The project builds on the Assignment 2 design and turns the catalogue, cart, checkout, customer account, employee catalogue management, order storage, and analytics flows into a working local web application.
 
-Mudabbirul Saad, student ID `105342121`.
+Built by Mudabbirul Saad as a software-engineering coursework prototype.
 
 ## What This Implements
 
